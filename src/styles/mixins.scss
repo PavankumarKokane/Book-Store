@@ -1,0 +1,147 @@
+@use "sass:map";
+
+// Media Query Breakpoints
+$media-max: (
+    "d-1400": "1400px",
+    "d-1920": "1920px",
+    "d-1680": "1680px",
+    "d-1440": "1440px",
+    "d-1366": "1366px",
+    "d-1280": "1280px",
+    "d-1200": "1200px",
+    "d-1024": "1024px",
+    "d-991": "991px",
+    "d-768": "768px",
+    "d-767": "767px",
+    "d-720": "720px",
+    "d-710": "710px",
+    "d-640": "640px",
+    "d-600": "600px",
+    "d-480": "480px",
+    "d-414": "414px",
+    "d-375": "375px",
+    "d-360": "360px",
+    "d-320": "320px",
+);
+
+// Max-Width media
+@mixin max($size) {
+    @media (max-width: map.get($media-max, $size)) {
+        @content;
+    }
+}
+
+// Min-width media
+@mixin min($size) {
+    @media (min-width: map.get($media-max, $size)) {
+        @content;
+    }
+}
+
+// Min-Max Width media
+@mixin minmax($size, $size-2) {
+    @media screen and (min-width: map.get($media-max, $size)) and (max-width: map.get($media-max, $size-2)) {
+        @content;
+    }
+}
+
+// CSS Grid 
+@mixin grid($items, $gap, $gap-2: $gap) {
+    display: grid;
+    grid-template-columns: repeat($items, 1fr);
+    grid-gap: $gap $gap-2;
+}
+
+@mixin grid-fluid($minw, $gap, $gap-2: $gap) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($minw, 1fr));
+    grid-gap: $gap $gap-2;
+}
+
+// Mixin for flexbox settings
+@mixin flexbox($direction: row, $justify: center, $align: center, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+// Typography mixin
+@mixin typography($size, $weight: normal, $line-height: normal, $color: inherit, $align: left, $spacing: normal) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $line-height;
+    color: $color;
+    letter-spacing: $spacing;
+    text-align: $align;
+}
+
+// Position mixin
+@mixin position($position: absolute, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// Center element mixin
+@mixin center($position: absolute) {
+    position: $position;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Mixin for quick gradients
+@mixin gradient($start-color, $end-color, $direction: to right) {
+    background: linear-gradient($direction, $start-color, $end-color);
+}
+
+// Mixin for transitions
+@mixin smooth-transition($properties: all, $duration: 0.3s, $timing: ease-in-out) {
+    transition: $properties $duration $timing;
+}
+
+// Line Limit Mixin
+@mixin line-show($line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+}
+
+// Background image positioning
+@mixin bg-ab {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+// Scrollbar styles
+@mixin scroll {
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #E8E8E8;
+    }
+
+    &::-webkit-scrollbar {
+        width: 12px;
+        background-color: #E8E8E8;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #929292;
+    }
+}

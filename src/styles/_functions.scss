@@ -1,0 +1,9 @@
+@function rem($px) {
+  $rem-size: 18px; 
+  @return calc($px / $rem-size) * 1rem;
+}
+
+@function mrem($px) {
+  $rem-size: 16px; 
+  @return calc($px / $rem-size) * 1rem;
+}

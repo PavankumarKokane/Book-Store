@@ -1,0 +1,89 @@
+:root {
+    // ------Root Color-----
+    --pc: #DB4437;
+    --sc: #F4B400;
+    --tc: #4285F4;
+    --hcolor: #000;
+    --body-color: #000;
+    // ------Root Background Color-----
+    --gray-bg: #F1F3F5;
+    --footer-bg: #000000;
+    // ------Common Color-----
+    --white: #FFFFFF;
+    --black: #000;
+    --tf: transparent;
+    // ------Paragraph Color-----
+    --p-color: #000F1B;
+    // ------H1 TO H6 Color-----
+    --h1toh6: #000;
+    // ------Other Color-----
+    --line-light: #D9D9D9;
+    --btn-hover: red;
+
+
+    // -----------Opecity----------
+    --op-thr: 0.3;
+    --op-n: 0.9;
+    --op-e: 0.8;
+    --op-f: 0.5;
+    // _______________Font Type__________________
+    --font-t: 100;
+    --font-el: 200;
+    --font-l: 300;
+    --font-r: 400;
+    --font-m: 500;
+    --font-sb: 600;
+    --font-b: 700;
+    --font-eb: 800;
+    --font-black: 900;
+    --font-eblack: 950;
+}
+
+// Default rem size
+$rem-size: 18px;
+
+// ------Root Color-----
+$pc: var(--pc);
+$sc: var(--sc);
+$tc: var(--tc);
+$bg-color: var(--bg-color);
+$bg-color2: var(--bg-color2);
+$hcolor: var(--hcolor);
+$body-color: var(--body-color);
+// ------Root Background Color-----
+$gray-bg: var(--gray-bg);
+$footer-bg: var(--footer-bg);
+// ------Common Color-----
+$white: var(--white);
+$black: var(--black);
+$tf: var(--tf);
+// ------Paragraph Color-----
+$p-color: var(--p-color);
+// ------H1 TO H6 Color-----
+$h1toh6: var(--h1toh6);
+// ------Other Color-----
+$line-light: var(--line-light);
+$btn-hover: var(--btn-hover);
+$new-mob-bgcolor: var(--new-mob-bgcolor);
+
+// -----------Opecity----------
+$op-thr: var(--op-thr);
+$op-n: var(--op-n);
+$op-e: var(--op-e);
+$op-f: var(--op-f);
+
+// _____________________Font Veriable___________________
+$pf-font: "Poppins", sans-serif;
+$sf-font: "Poppins";
+
+// _______________Font Type__________________
+$font-t: var(--font-t); //Thin (Hairline)
+$font-el: var(--font-el); //Extra Light (Ultra Light)
+$font-l: var(--font-l); //Light
+$font-r: var(--font-r); //Normal (Regular)
+$font-m: var(--font-m); //Medium
+$font-sb: var(--font-sb); //Semi Bold (Demi Bold)
+$font-b: var(--font-b); //Bold
+$font-eb: var(--font-eb); //Extra Bold (Ultra Bold)
+$font-black: var(--font-black); //Black (Heavy)
+$font-eblack: var(--font-eblack); // Extra Black (Ultra Black)
