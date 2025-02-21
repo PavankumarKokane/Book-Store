@@ -2,44 +2,32 @@ import React, { useEffect, useState } from "react";
 import "./BookList.scss";
 import BookCard from "./BookCard";
 import BookListfallback from "./BookListfallback";
+import useFetchBooks from "../hooks/useFetchBooks";
 
 const BookList = () => {
-  const [books, setBooks] = useState([]);
-  const [startIndex, setstartIndex] = useState(0);
-  const [total, setTotal] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const getBooks = async () => {
-    setLoading(true);
-    const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=a&orderBy=newest&maxResults=12&startIndex=${startIndex}`
-    );
-    const data = await res.json();
-    console.log(data);
-    setBooks([...books, ...data.items]);
-    setTotal(data.totalItems);
-    setLoading(false);
-  };
-  useEffect(() => {
-    getBooks();
-  }, [startIndex]);
+  const { books, startIndex, total, loading, error, setstartIndex } = useFetchBooks();
 
   if (books.length < 0) {
     return <BookListfallback />;
+  }
+
+  if(error){
+    return <p>Some Error Occured</p>;
   }
 
   return (
     <>
       <div className="book-list">
         {books?.map((item) => {
-          return <BookCard key={item.id} book={item} />;
+          return <BookCard key={item.etag} book={item} />;
         })}
       </div>
       {loading ? <BookListfallback /> : ""}
-      {total - 20 * startIndex > 20 * startIndex ? (
+      {(total - startIndex) > startIndex ? (
         <div className="cta-wrapper">
           <button
             className="load-more-btn"
-            onClick={() => setstartIndex(startIndex + 12)}
+            onClick={() => setstartIndex(startIndex + 36)}
           >
             Load More
           </button>

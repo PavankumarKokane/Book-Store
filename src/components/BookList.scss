@@ -19,23 +19,36 @@
     font-size: rem(18px);
     font-weight: $font-sb;
     color: #ffffff;
-    background-color: $pc;
     border: none;
     border-radius: rem(10px);
     cursor: pointer;
+    animation: googleColors 3s infinite linear;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
-
-  .load-more-btn:hover {
-    background-color: $tc;
-  }
-
   .load-more-btn:active {
     transform: scale(0.95);
   }
 
   .load-more-btn:disabled {
-    background-color: #cccccc;
+    opacity: 0.5;
     cursor: not-allowed;
+  }
+}
+
+@keyframes googleColors {
+  0% {
+    background-color: #4285f4;
+  }
+  25% {
+    background-color: #ea4335;
+  }
+  50% {
+    background-color: #fbbc05;
+  }
+  75% {
+    background-color: #34a853;
+  }
+  100% {
+    background-color: #4285f4;
   }
 }

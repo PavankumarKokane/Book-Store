@@ -5,7 +5,7 @@ import "./BookCard.scss"
 const BookCard = (props) => {
   const item = props.book;
   return (
-    <Link to={`/book/${item.id}`} key={item.id}>
+    <Link to={`/book/${item.id}`} key={item.etag}>
       <div className="book-card">
         <div className="img-box">
           <img
