@@ -22,10 +22,7 @@ const BookDetail = (props) => {
           <div className="img-wrapper">
             <img
               loading="eager"
-              src={book.volumeInfo.imageLinks.medium.replace(
-                "http://",
-                "https://"
-              )}
+              src={book.volumeInfo.imageLinks.medium ? book.volumeInfo.imageLinks.medium.replace("http://","https://"): book.volumeInfo.imageLinks.thumbnail.replace("http://","https://")}
               height={773}
               width={504}
               alt={book.volumeInfo.title}
