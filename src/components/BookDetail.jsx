@@ -6,7 +6,7 @@ import BookDetailfallback from "./BookDetailfallback";
 const BookDetail = (props) => {
   const BookID = props.bookID;
   const { book, loading, error } = useFetchBook(BookID);
-  console.log(book);
+  //console.log(book);
 
   const stripHtmlTags = (str) => {
     return str.replace(/<\/?[^>]+(>|$)/g, "");
