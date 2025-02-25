@@ -4,7 +4,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: rem(20px);
-  padding: rem(70px) 0;
   &.fallback {
     margin-top: rem(20px);
   }
@@ -19,6 +18,5 @@
 @include max(d-640){
   .book-list{
     grid-template-columns: repeat(1,1fr);
-    padding: mrem(50px) 0;
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import "./BookCard.scss"
+import "./BookCard.scss";
 
 const BookCard = (props) => {
   const item = props.book;
@@ -19,12 +19,16 @@ const BookCard = (props) => {
         <div className="content">
           <h2 className="title">{item.volumeInfo.title}</h2>
           <div>
-            <p className="author">
-              <strong>Author:</strong> {item.volumeInfo?.authors}
-            </p>
-            <p className="publisher">
-              <strong>Publisher:</strong> {item.volumeInfo?.publisher}
-            </p>
+            {item.volumeInfo?.authors && (
+              <p className="author">
+                <strong>Author:</strong> {item.volumeInfo?.authors}
+              </p>
+            )}
+            {item.volumeInfo?.publisher && (
+              <p className="publisher">
+                <strong>Publisher:</strong> {item.volumeInfo?.publisher}
+              </p>
+            )}
             {item.volumeInfo.categories && (
               <p className="categories">
                 <strong>Categories:</strong>{" "}

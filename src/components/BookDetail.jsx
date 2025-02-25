@@ -13,7 +13,7 @@ const BookDetail = (props) => {
   };
 
   if (loading) {
-    return <BookDetailfallback />
+    return <BookDetailfallback />;
   }
   return (
     <div className="book-wrapper">
@@ -22,7 +22,17 @@ const BookDetail = (props) => {
           <div className="img-wrapper">
             <img
               loading="eager"
-              src={book.volumeInfo.imageLinks.medium ? book.volumeInfo.imageLinks.medium.replace("http://","https://"): book.volumeInfo.imageLinks.thumbnail.replace("http://","https://")}
+              src={
+                book.volumeInfo.imageLinks?.medium
+                  ? book.volumeInfo.imageLinks?.medium.replace(
+                      "http://",
+                      "https://"
+                    )
+                  : book.volumeInfo.imageLinks?.thumbnail.replace(
+                      "http://",
+                      "https://"
+                    )
+              }
               height={773}
               width={504}
               alt={book.volumeInfo.title}
@@ -55,16 +65,48 @@ const BookDetail = (props) => {
               )}
             </div>
             <div className="other-detail">
-              <p className="author">Author : <span>{book.volumeInfo.authors}</span></p>
-              <p className="publisher">Publisher: <span>{book.volumeInfo.publisher}</span></p>
-              <p className="published-date">Published Date: <span>{book.volumeInfo.publishedDate}</span></p>
-              <p className="total-page">Page Count: <span>{book.volumeInfo.pageCount}</span></p>
+              {book.volumeInfo.authors && (
+                <p className="author">
+                  Author : <span>{book.volumeInfo.authors}</span>
+                </p>
+              )}
+              {book.volumeInfo.publisher && (
+                <p className="publisher">
+                  Publisher: <span>{book.volumeInfo.publisher}</span>
+                </p>
+              )}
+              {book.volumeInfo.publishedDate && (
+                <p className="published-date">
+                  Published Date: <span>{book.volumeInfo.publishedDate}</span>
+                </p>
+              )}
+              {book.volumeInfo.pageCount && (
+                <p className="total-page">
+                  Page Count: <span>{book.volumeInfo.pageCount}</span>
+                </p>
+              )}
             </div>
             <div className="cta-wrapper">
-              <a href={book.saleInfo.buyLink} className="buy-now" target="_blank">Buy Now</a>
-              {
-                book.volumeInfo.previewLink ? <a href={book.volumeInfo.previewLink} className="preview" target="_blank">View Now</a> : ""
-              }
+              {book.saleInfo.buyLink && (
+                <a
+                  href={book.saleInfo.buyLink}
+                  className="buy-now"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Buy Now
+                </a>
+              )}
+              {book.volumeInfo.previewLink && (
+                <a
+                  href={book.volumeInfo.previewLink}
+                  className="preview"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Now
+                </a>
+              )}
             </div>
           </div>
         </div>

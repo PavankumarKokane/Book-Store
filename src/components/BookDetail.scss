@@ -1,124 +1,130 @@
 @use "../styles/index" as *;
-.book-wrapper{
-    padding: rem(70px) 0;
-    .main-wrapper{
+.book-wrapper {
+  padding: rem(70px) 0;
+  .main-wrapper {
+    display: flex;
+    gap: rem(70px);
+    .img-wrapper {
+      width: 30%;
+      flex: 0 0 30%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .content-wrapper {
+      width: calc(70% - rem(70px));
+      flex: 0 0 calc(70% - rem(70px));
+      h1 {
+        margin-bottom: rem(20px);
+      }
+      .price-wrapper {
+        p {
+          font-size: rem(26px);
+          display: flex;
+          gap: rem(10px);
+          .currency-code {
+            font-weight: $font-sb;
+          }
+          del {
+            opacity: 0.5;
+          }
+          .current-price {
+            font-weight: $font-b;
+          }
+        }
+      }
+      .other-detail {
+        p {
+          font-weight: $font-sb;
+          span {
+            font-weight: $font-r;
+          }
+        }
+      }
+      .cta-wrapper {
         display: flex;
-        gap: rem(70px);
-        .img-wrapper{
-            width: 30%;
-            flex: 0 0 30%;
-            img{
-                width: 100%;
-                height: auto;
-            }
+        justify-content: flex-start;
+        gap: rem(20px);
+        margin-top: mrem(30px);
+        a {
+          display: inline-flex;
+          padding: rem(18px) rem(50px);
+          border-radius: rem(100px);
+          color: $white;
+          &.buy-now {
+            background: #34a853;
+          }
+          &.preview {
+            background: #4285f4;
+          }
+          &:hover {
+            opacity: 0.8;
+          }
         }
-        .content-wrapper{
-            width: calc(70% - rem(70px));
-            flex: 0 0 calc(70% - rem(70px));
-            h1{
-                margin-bottom: rem(20px);
-            }
-            .price-wrapper{
-                p{
-                    font-size: rem(26px);
-                    display: flex;
-                    gap: rem(10px);
-                    .currency-code{
-                        font-weight: $font-sb;
-                    }
-                    del{
-                        opacity: 0.5;
-                    }
-                    .current-price{
-                        font-weight: $font-b;
-                    }
-                }
-            }
-            .other-detail{
-                p{
-                    font-weight: $font-sb;
-                    span{
-                        font-weight: $font-r;
-                    }
-                }
-            }
-            .cta-wrapper{
-                display: flex;
-                justify-content: flex-start;
-                gap: rem(20px);
-                a{
-                    display: inline-flex;
-                    padding: rem(18px) rem(50px);
-                    border-radius: rem(100px);
-                    color: $white;
-                    &.buy-now{
-                        background: #34a853;
-                    }
-                    &.preview{
-                        background: #4285f4;
-                    }
-                    &:hover{
-                        opacity: 0.8;
-                    }
-                }
-            }
-        }
+      }
     }
-    &.skeleton-loading{
-        .main-wrapper{
-            .img-wrapper{
-                max-height: rem(570px);
-                overflow: hidden;
-            }
-        }
-    }
+  }
 }
 
-@include max(d-640){
-    .book-wrapper{
-        padding: mrem(50px) 0;
-        .main-wrapper{
-            flex-direction: column;
-            gap: mrem(30px);
-            .img-wrapper,.content-wrapper{
-                width: 100%;
-                flex: 0 0 100%;
-            }
-            .img-wrapper{
-                max-height: mrem(550px);
-                img{
-                    width: 60%;
-                    margin: 0 auto;
-                }
-            }
-            .content-wrapper{
-                .cta-wrapper{
-                    margin-top: mrem(30px);
-                    a{
-                        padding: mrem(15px) mrem(30px);
-                    }
-                }
-            }
+@include max(d-1024) {
+  .book-wrapper {
+    &.skeleton-loading {
+      .main-wrapper {
+        .img-wrapper {
+          max-height: rem(570px);
+          overflow: hidden;
         }
-        &.skeleton-loading{
-            .main-wrapper{
-                .img-wrapper{
-                    width: 60%;
-                    max-height: mrem(350px);
-                    overflow: hidden;
-                    margin: 0 auto;
-                }
-                .content-wrapper{
-                    .cta-wrapper{
-                        display: grid;
-                        grid-template-columns: repeat(2,1fr);
-                        span{
-                            width: 100%!important;
-                            overflow: hidden;
-                        }
-                    }
-                }
-            }
-        }
+      }
     }
+  }
+}
+
+@include max(d-640) {
+  .book-wrapper {
+    padding: mrem(50px) 0;
+    .main-wrapper {
+      flex-direction: column;
+      gap: mrem(30px);
+      .img-wrapper,
+      .content-wrapper {
+        width: 100%;
+        flex: 0 0 100%;
+      }
+      .img-wrapper {
+        max-height: mrem(550px);
+        img {
+          width: 60%;
+          margin: 0 auto;
+        }
+      }
+      .content-wrapper {
+        .cta-wrapper {
+          a {
+            padding: mrem(15px) mrem(30px);
+          }
+        }
+      }
+    }
+    &.skeleton-loading {
+      .main-wrapper {
+        .img-wrapper {
+          width: 60%;
+          max-height: mrem(350px);
+          overflow: hidden;
+          margin: 0 auto;
+        }
+        .content-wrapper {
+          .cta-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            span {
+              width: 100% !important;
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
 }

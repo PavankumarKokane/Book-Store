@@ -1,10 +1,11 @@
 @use "../styles/index" as *;
 .home-sec {
+  padding: rem(70px) 0;
   .books-wrapper {
     .cta-wrapper {
       display: flex;
       justify-content: center;
-      margin: 0 auto rem(70px);
+      margin: rem(70px) auto 0;
       .load-more-btn {
         display: inline-block;
         padding: rem(15px) rem(35px);
@@ -44,5 +45,12 @@
   }
   100% {
     background-color: #4285f4;
+  }
+}
+
+
+@include max(d-640){
+  .home-sec{
+    padding: mrem(50px) 0;
   }
 }
