@@ -5,7 +5,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const BookCardfallback = () => {
   return (
-    <div className="book-card">
+    <div className="book-card skeleton-loading">
       <div className="img-box">
         <Skeleton width={128} height={195} />
       </div>

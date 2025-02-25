@@ -4,11 +4,11 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const BookDetailfallback = () => {
   return (
-    <div className="book-wrapper">
+    <div className="book-wrapper skeleton-loading">
       <div className="container">
         <div className="main-wrapper">
           <div className="img-wrapper">
-            <Skeleton height={773} width={504} />
+            <Skeleton height={773}  width="100%" />
           </div>
           <div className="content-wrapper">
             <h1>

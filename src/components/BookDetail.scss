@@ -64,4 +64,53 @@
             }
         }
     }
+    &.skeleton-loading{
+        .main-wrapper{
+            .img-wrapper{
+                max-height: rem(570px);
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+@include max(d-640){
+    .book-wrapper{
+        padding: mrem(50px) 0;
+        .main-wrapper{
+            flex-direction: column;
+            gap: mrem(30px);
+            .img-wrapper,.content-wrapper{
+                width: 100%;
+                flex: 0 0 100%;
+            }
+            .img-wrapper{
+                max-height: mrem(550px);
+                img{
+                    width: 60%;
+                    margin: 0 auto;
+                }
+            }
+        }
+        &.skeleton-loading{
+            .main-wrapper{
+                .img-wrapper{
+                    width: 60%;
+                    max-height: mrem(350px);
+                    overflow: hidden;
+                    margin: 0 auto;
+                }
+                .content-wrapper{
+                    .cta-wrapper{
+                        display: grid;
+                        grid-template-columns: repeat(2,1fr);
+                        span{
+                            width: 100%!important;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

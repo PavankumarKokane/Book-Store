@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import "./home.scss";
 import BookListfallback from "../components/BookListfallback";
 
 const BookList = lazy(() => import("../components/BookList"));

@@ -7,7 +7,7 @@ import useFetchBooks from "../hooks/useFetchBooks";
 const BookList = () => {
   const { books, startIndex, total, loading, error, setstartIndex } = useFetchBooks();
 
-  if (books.length < 0) {
+  if (books.length < 1) {
     return <BookListfallback />;
   }
 

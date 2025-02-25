@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: rem(20px);
+  padding: rem(70px) 0;
   &.fallback {
     margin-top: rem(20px);
   }
@@ -12,7 +13,7 @@
 .cta-wrapper {
   display: flex;
   justify-content: center;
-  margin: rem(70px) auto 0;
+  margin: 0 auto rem(70px);
   .load-more-btn {
     display: inline-block;
     padding: rem(15px) rem(35px);
@@ -50,5 +51,19 @@
   }
   100% {
     background-color: #4285f4;
+  }
+}
+
+
+@include max(d-991){
+  .book-list{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@include max(d-640){
+  .book-list{
+    grid-template-columns: repeat(1,1fr);
+    padding: mrem(50px) 0;
   }
 }
