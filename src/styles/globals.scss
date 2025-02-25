@@ -1,0 +1,123 @@
+@use "index" as *;
+
+body,
+html {
+  font-family: $pf-font;
+  line-height: 1;
+  font-size: $rem-size;
+  font-weight: $font-r;
+  color: $body-color;
+  margin: 0;
+  padding: 0;
+}
+body.scroll-hidden {
+  overflow: hidden;
+}
+
+* {
+  font-family: $pf-font;
+  box-sizing: border-box;
+}
+
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+  line-height: 1.25;
+  color: $h1toh6;
+  margin: 0;
+}
+
+.h1,
+h1 {
+  font-weight: $font-b;
+  font-size: rem(50px);
+}
+
+.h2,
+h2 {
+  font-weight: $font-b;
+  font-size: rem(40px);
+}
+
+.h3,
+h3 {
+  font-weight: $font-b;
+  font-size: rem(36px);
+}
+
+.h4,
+h4 {
+  font-weight: $font-b;
+  font-size: rem(30px);
+}
+
+.h5,
+h5 {
+  font-weight: $font-m;
+  font-size: rem(24px);
+}
+
+.h6,
+h6 {
+  font-weight: $font-b;
+  font-size: rem(18px);
+}
+
+p {
+  color: $p-color;
+  font-weight: $font-r;
+  line-height: 1.5;
+  margin: 0 0 rem(10px);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    // color: mix(#c92b21, #000000, 10%);
+    color: $pc;
+  }
+}
+
+button {
+  cursor: pointer;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+.btn {
+  //input
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,19 @@
+@use "../styles/index" as *;
+footer{
+    padding: rem(15px) 0;
+    background: $black;
+    p{
+        font-size: rem(20px);
+        text-align: center;
+        color: $white;
+        margin: 0;
+    }
+}
+
+@include max(d-640){
+    footer{
+        p{
+            font-size: mrem(16px);
+        }
+    }
+}

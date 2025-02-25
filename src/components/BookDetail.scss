@@ -1,0 +1,67 @@
+@use "../styles/index" as *;
+.book-wrapper{
+    padding: rem(70px) 0;
+    .main-wrapper{
+        display: flex;
+        gap: rem(70px);
+        .img-wrapper{
+            width: 30%;
+            flex: 0 0 30%;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+        .content-wrapper{
+            width: calc(70% - rem(70px));
+            flex: 0 0 calc(70% - rem(70px));
+            h1{
+                margin-bottom: rem(20px);
+            }
+            .price-wrapper{
+                p{
+                    font-size: rem(26px);
+                    display: flex;
+                    gap: rem(10px);
+                    .currency-code{
+                        font-weight: $font-sb;
+                    }
+                    del{
+                        opacity: 0.5;
+                    }
+                    .current-price{
+                        font-weight: $font-b;
+                    }
+                }
+            }
+            .other-detail{
+                p{
+                    font-weight: $font-sb;
+                    span{
+                        font-weight: $font-r;
+                    }
+                }
+            }
+            .cta-wrapper{
+                display: flex;
+                justify-content: flex-start;
+                gap: rem(20px);
+                a{
+                    display: inline-flex;
+                    padding: rem(18px) rem(50px);
+                    border-radius: rem(100px);
+                    color: $white;
+                    &.buy-now{
+                        background: #34a853;
+                    }
+                    &.preview{
+                        background: #4285f4;
+                    }
+                    &:hover{
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}
