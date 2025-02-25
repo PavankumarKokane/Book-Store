@@ -10,51 +10,6 @@
   }
 }
 
-.cta-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto rem(70px);
-  .load-more-btn {
-    display: inline-block;
-    padding: rem(15px) rem(35px);
-    font-size: rem(18px);
-    font-weight: $font-sb;
-    color: #ffffff;
-    border: none;
-    border-radius: rem(10px);
-    cursor: pointer;
-    animation: googleColors 3s infinite linear;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  .load-more-btn:active {
-    transform: scale(0.95);
-  }
-
-  .load-more-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-}
-
-@keyframes googleColors {
-  0% {
-    background-color: #4285f4;
-  }
-  25% {
-    background-color: #ea4335;
-  }
-  50% {
-    background-color: #fbbc05;
-  }
-  75% {
-    background-color: #34a853;
-  }
-  100% {
-    background-color: #4285f4;
-  }
-}
-
-
 @include max(d-991){
   .book-list{
     grid-template-columns: repeat(2,1fr);

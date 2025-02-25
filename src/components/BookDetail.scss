@@ -91,6 +91,14 @@
                     margin: 0 auto;
                 }
             }
+            .content-wrapper{
+                .cta-wrapper{
+                    margin-top: mrem(30px);
+                    a{
+                        padding: mrem(15px) mrem(30px);
+                    }
+                }
+            }
         }
         &.skeleton-loading{
             .main-wrapper{
