@@ -6,7 +6,7 @@ const useFetchBooks = (book_name) => {
   const [total, setTotal] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const search_query = book_name;
+  const search_query = book_name || "a";
 
   const getBooks = async () => {
     try {

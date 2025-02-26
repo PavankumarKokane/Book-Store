@@ -8,7 +8,6 @@ const BookList = () => {
   const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage } = useContext(BooksContext);
   
   useEffect(()=>{
-    setError(false);
     changeBookName("a");
     changePage("Home");
   },[])
