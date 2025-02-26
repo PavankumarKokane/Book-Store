@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./BookList.scss";
 import BookCard from "./BookCard";
 import BookListfallback from "./BookListfallback";
-import useFetchBooks from "../hooks/useFetchBooks";
+import { BooksContext } from "../context/BooksContext";
 
 const BookList = () => {
-  const { books, startIndex, total, loading, error, setstartIndex } = useFetchBooks("a");
+  const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage } = useContext(BooksContext);
+  
+  useEffect(()=>{
+    setError(false);
+    changeBookName("a");
+    changePage("Home");
+  },[])
 
   if (books.length < 1) {
     return <BookListfallback />;

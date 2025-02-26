@@ -13,7 +13,7 @@ const useFetchBooks = (book_name) => {
       setLoading(true);
       const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search_query}&orderBy=newest&maxResults=36&startIndex=${startIndex}`);
       const data = await res.json();
-      console.log(data);
+      //console.log(data);
       search_query == "a" ? setBooks([...books, ...data.items]) : setBooks([...books, ...data.items])
       setTotal(data.totalItems);
     } catch (error) {
@@ -26,7 +26,7 @@ const useFetchBooks = (book_name) => {
     getBooks();
   }, [startIndex,search_query]);
 
-  return { books, startIndex, total, loading, error, setstartIndex,setBooks };
+  return { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading };
 };
 
 export default useFetchBooks;

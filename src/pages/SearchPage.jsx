@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "../components/BookList.scss";
 import "./Search.scss";
-import useFetchBooks from "../hooks/useFetchBooks";
 import BookListfallback from "../components/BookListfallback";
 import BookCard from "../components/BookCard";
+import { BooksContext } from "../context/BooksContext";
 
 const SearchPage = () => {
-  const [bookName, setBookName] = useState("");
-  const [search,setSearch] = useState(false);
-  const { books, startIndex, total, loading, error, setstartIndex, setBooks } = useFetchBooks(bookName);
+  const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage } = useContext(BooksContext);
+  
+  useEffect(()=>{
+    changePage("Search");
+  },[])
+
   const formSearch = (event) => {
     event.preventDefault();
     const search_book = event.target.q.value;
-    bookName != search_book ? (setBooks([]), setBookName(search_book), setSearch(true)) : null;
+    changeBookName(search_book);
   };
 
   return (
@@ -30,7 +33,7 @@ const SearchPage = () => {
               return <BookCard key={item.etag} book={item} />;
             })}
           </div>
-          {loading && search ? <BookListfallback /> : ""}
+          {loading ? <BookListfallback /> : ""}
           {total - startIndex > startIndex ? (
             <div className="cta-wrapper">
               <button
