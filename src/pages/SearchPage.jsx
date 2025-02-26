@@ -8,15 +8,20 @@ import { BooksContext } from "../context/BooksContext";
 const SearchPage = () => {
   const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage } = useContext(BooksContext);
   
-  useEffect(()=>{
-    changePage("Search");
-  },[])
-
   const formSearch = (event) => {
     event.preventDefault();
     const search_book = event.target.q.value;
     changeBookName(search_book);
   };
+  
+  useEffect(()=>{
+    changePage("Search");
+  },[])
+
+
+  if(error){
+    return <p>Some Error Occured</p>;
+  }
 
   return (
     <div className="search-page">
