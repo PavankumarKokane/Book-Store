@@ -5,6 +5,7 @@ import "./styles/main.scss"
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Home from './pages/Home.jsx'
 import BookPage from './pages/BookPage.jsx'
+import SearchPage from './pages/SearchPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -12,6 +13,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/' element={<App />}>
         <Route path='/' element={<Home />} />
         <Route path='/book/:id' element={<BookPage />} />
+        <Route path='/search' element={<SearchPage />} />
       </Route>
     </Routes>
   </BrowserRouter>

@@ -1,0 +1,74 @@
+@use "../styles/index" as *;
+.search-page {
+  padding: rem(70px) 0;
+  min-height: calc(100vh - rem(140px));
+
+  form {
+    display: flex;
+    gap: rem(10px);
+    background: rgba(255, 255, 255, 0.2);
+    padding: rem(15px);
+    border-radius: rem(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    margin: 0 auto rem(50px);
+    input[type="text"] {
+      flex: 1;
+      padding: rem(12px);
+      border-radius: rem(5px);
+      font-size: rem(18px);
+      outline: none;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid #e3e3e3;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    input[type="text"]::placeholder {
+      color: #555;
+    }
+
+    input[type="text"]:focus {
+      background: #fff;
+    }
+
+    button {
+      padding: rem(12px) rem(20px);
+      border: none;
+      border-radius: rem(5px);
+      background: $pc;
+      color: white;
+      font-size: rem(18px);
+      font-weight: $font-b;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      &:hover {
+        background: $pc;
+        transform: scale(1.05);
+      }
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}
+
+
+@include max(d-640){
+    .search-page{
+        form{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            button{
+                font-size: mrem(16px);
+                width: fit-content;
+            }
+            input[type=text]{
+                font-size: mrem(16px);
+            }
+        }
+    }
+}

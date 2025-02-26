@@ -10,14 +10,14 @@ const BookCard = (props) => {
         <div className="img-box">
           <img
             loading="lazy"
-            src={item.volumeInfo.imageLinks?.thumbnail}
-            alt={item.volumeInfo.title}
+            src={item.volumeInfo?.imageLinks?.thumbnail}
+            alt={item.volumeInfo?.title}
             width={128}
             height={195}
           />
         </div>
         <div className="content">
-          <h2 className="title">{item.volumeInfo.title}</h2>
+          <h2 className="title">{item.volumeInfo?.title}</h2>
           <div>
             {item.volumeInfo?.authors && (
               <p className="author">
@@ -29,7 +29,7 @@ const BookCard = (props) => {
                 <strong>Publisher:</strong> {item.volumeInfo?.publisher}
               </p>
             )}
-            {item.volumeInfo.categories && (
+            {item.volumeInfo?.categories && (
               <p className="categories">
                 <strong>Categories:</strong>{" "}
                 {item.volumeInfo.categories.join(", ")}

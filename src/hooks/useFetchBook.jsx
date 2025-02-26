@@ -11,6 +11,7 @@ const useFetchBook = (id) => {
         `https://www.googleapis.com/books/v1/volumes/${id}`
       );
       const data = await res.json();
+      console.log(data);
       setBook(data);
     } catch (error) {
       setError(error);

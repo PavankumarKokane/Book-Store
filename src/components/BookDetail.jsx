@@ -9,7 +9,7 @@ const BookDetail = (props) => {
   //console.log(book);
 
   const stripHtmlTags = (str) => {
-    return str.replace(/<\/?[^>]+(>|$)/g, "");
+    return str?.replace(/<\/?[^>]+(>|$)/g, "");
   };
 
   if (loading) {
@@ -23,12 +23,12 @@ const BookDetail = (props) => {
             <img
               loading="eager"
               src={
-                book.volumeInfo.imageLinks?.medium
-                  ? book.volumeInfo.imageLinks?.medium.replace(
+                book.volumeInfo?.imageLinks?.medium
+                  ? book.volumeInfo?.imageLinks?.medium.replace(
                       "http://",
                       "https://"
                     )
-                  : book.volumeInfo.imageLinks?.thumbnail.replace(
+                  : book.volumeInfo?.imageLinks?.thumbnail.replace(
                       "http://",
                       "https://"
                     )
@@ -39,8 +39,8 @@ const BookDetail = (props) => {
             />
           </div>
           <div className="content-wrapper">
-            <h1>{book.volumeInfo.title}</h1>
-            <p>{stripHtmlTags(book.volumeInfo.description)}</p>
+            <h1>{book.volumeInfo?.title}</h1>
+            <p>{stripHtmlTags(book.volumeInfo?.description)}</p>
             <div className="price-wrapper">
               {book.saleInfo?.listPrice?.amount >
               book.saleInfo?.retailPrice?.amount ? (
@@ -56,38 +56,38 @@ const BookDetail = (props) => {
               ) : (
                 <p>
                   <span className="currency-code">
-                    {book.saleInfo.listPrice?.currencyCode}
+                    {book.saleInfo?.listPrice?.currencyCode}
                   </span>{" "}
                   <span className="current-price">
-                    {book.saleInfo.retailPrice?.amount}
+                    {book.saleInfo?.retailPrice?.amount}
                   </span>
                 </p>
               )}
             </div>
             <div className="other-detail">
-              {book.volumeInfo.authors && (
+              {book.volumeInfo?.authors && (
                 <p className="author">
                   Author : <span>{book.volumeInfo.authors}</span>
                 </p>
               )}
-              {book.volumeInfo.publisher && (
+              {book.volumeInfo?.publisher && (
                 <p className="publisher">
                   Publisher: <span>{book.volumeInfo.publisher}</span>
                 </p>
               )}
-              {book.volumeInfo.publishedDate && (
+              {book.volumeInfo?.publishedDate && (
                 <p className="published-date">
                   Published Date: <span>{book.volumeInfo.publishedDate}</span>
                 </p>
               )}
-              {book.volumeInfo.pageCount && (
+              {book.volumeInfo?.pageCount && (
                 <p className="total-page">
                   Page Count: <span>{book.volumeInfo.pageCount}</span>
                 </p>
               )}
             </div>
             <div className="cta-wrapper">
-              {book.saleInfo.buyLink && (
+              {book.saleInfo?.buyLink && (
                 <a
                   href={book.saleInfo.buyLink}
                   className="buy-now"
@@ -97,7 +97,7 @@ const BookDetail = (props) => {
                   Buy Now
                 </a>
               )}
-              {book.volumeInfo.previewLink && (
+              {book.volumeInfo?.previewLink && (
                 <a
                   href={book.volumeInfo.previewLink}
                   className="preview"
