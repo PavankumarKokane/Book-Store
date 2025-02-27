@@ -6,11 +6,11 @@ import { BooksContext } from "../context/BooksContext";
 
 const BookList = () => {
   const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage } = useContext(BooksContext);
-  
+
   useEffect(()=>{
-    changeBookName("a");
+    changeBookName("a")
     changePage("Home");
-  },[])
+  },)
 
   if (books.length < 1) {
     return <BookListfallback />;
@@ -27,8 +27,8 @@ const BookList = () => {
           return <BookCard key={item.etag} book={item} />;
         })}
       </div>
-      {loading ? <BookListfallback /> : ""}
-      {(total - startIndex) > startIndex ? (
+      {loading && <BookListfallback />}
+      {(total - startIndex) > startIndex && (
         <div className="cta-wrapper">
           <button
             className="load-more-btn"
@@ -37,8 +37,6 @@ const BookList = () => {
             Load More
           </button>
         </div>
-      ) : (
-        ""
       )}
     </>
   );

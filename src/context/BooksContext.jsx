@@ -4,18 +4,27 @@ import useFetchBooks from "../hooks/useFetchBooks";
 export const BooksContext = createContext();
 
 export const BooksProvider = ({ children }) => {
-  const [bookName, setBookName] = useState("");
-  const [page,setPage] = useState("");
-  const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading } = useFetchBooks(bookName);
+  const [bookName, setBookName] = useState("a");
+  const [page,setPage] = useState("Home");
+  const [search,setSearch] = useState(false);
+  const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading } = useFetchBooks(bookName,page);
 
-  const changePage = (newpage) =>{
-    page != newpage ? (setPage(newpage),setBooks([]),setTotal(0)): ""
-  }
+  const changePage = (newpage) => {
+    if (page != newpage) {
+        setPage(newpage);
+        setBooks([]);
+        setTotal(0);
+        setSearch(false);
+    }
+};
 
-  const changeBookName = (newbookName) =>{
-    bookName != newbookName ? (setBookName(newbookName),setBooks([]),setTotal(0)): ""
-  }
-  
+const changeBookName = (newbookName) => {
+    if (bookName != newbookName) {
+        setBookName(newbookName);
+        setBooks([]);
+        setTotal(0);
+    }
+};  
 
-  return <BooksContext.Provider value={{ books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage }}>{children}</BooksContext.Provider>;
+  return <BooksContext.Provider value={{ books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage, search, setSearch }}>{children}</BooksContext.Provider>;
 };

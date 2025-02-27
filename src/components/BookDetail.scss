@@ -13,6 +13,7 @@
   padding: rem(70px) 0;
   .main-wrapper {
     display: flex;
+    align-items: flex-start;
     gap: rem(70px);
     .img-wrapper {
       width: 30%;
