@@ -5,7 +5,7 @@ import BookListfallback from "./BookListfallback";
 import { BooksContext } from "../context/BooksContext";
 
 const BookList = () => {
-  const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage } = useContext(BooksContext);
+  const { books, startIndex, setstartIndex, total, error, loading, changeBookName, changePage } = useContext(BooksContext);
 
   useEffect(()=>{
     changeBookName("a")

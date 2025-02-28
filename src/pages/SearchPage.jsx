@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../components/BookList.scss";
 import "./Search.scss";
 import BookListfallback from "../components/BookListfallback";
@@ -6,7 +6,8 @@ import BookCard from "../components/BookCard";
 import { BooksContext } from "../context/BooksContext";
 
 const SearchPage = () => {
-  const { books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage, search, setSearch } = useContext(BooksContext);
+  const searchBox = useRef(null);
+  const { books, startIndex, setstartIndex, total, error, loading, bookName, changeBookName, changePage, search, setSearch } = useContext(BooksContext);
   
   const formSearch = (event) => {
     event.preventDefault();
@@ -16,6 +17,7 @@ const SearchPage = () => {
   };
   
   useEffect(()=>{
+    bookName != "a" ? searchBox.current.value = bookName : "";
     changePage("Search");
   },[])
 
@@ -30,7 +32,7 @@ const SearchPage = () => {
         <div className="books-wrapper">
           <div className="form-wrapper">
             <form onSubmit={() => formSearch(event)}>
-              <input type="text" name="q" placeholder="Enter the book name" />
+              <input type="text" name="q" placeholder="Enter the book name"  ref={searchBox}/>
               <button>Submit</button>
             </form>
           </div>

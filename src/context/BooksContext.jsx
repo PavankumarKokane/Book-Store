@@ -26,5 +26,5 @@ const changeBookName = (newbookName) => {
     }
 };  
 
-  return <BooksContext.Provider value={{ books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, changeBookName, changePage, search, setSearch }}>{children}</BooksContext.Provider>;
+  return <BooksContext.Provider value={{ books, setBooks, startIndex, setstartIndex, total, setTotal, error, setError, loading, bookName, changeBookName, changePage, search, setSearch }}>{children}</BooksContext.Provider>;
 };

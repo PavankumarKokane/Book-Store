@@ -11,6 +11,7 @@ const useFetchBooks = (book_name,page) => {
   
   const getBooks = async () => {
     try {
+      setError(null);
       setLoading(true);
       const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search_query}&orderBy=newest&maxResults=36&startIndex=${startIndex}`);
       const data = await res.json();
